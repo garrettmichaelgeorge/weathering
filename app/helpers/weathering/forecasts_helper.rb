@@ -1,0 +1,2 @@
+module Weathering::ForecastsHelper
+end

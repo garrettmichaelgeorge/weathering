@@ -1,0 +1,12 @@
+version: "0.5"
+
+processes:
+  web:
+    command: env RUBY_DEBUG_OPEN=true bin/rails server
+    availability:
+     restart: "always"
+
+  css:
+    command: yarn watch:css
+    availability:
+     restart: "always"

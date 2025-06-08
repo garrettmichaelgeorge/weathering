@@ -1,6 +1,14 @@
-<h1>Forecasts</h1>
+<div class="col-lg-4 mx-auto">
+  <h1>Forecasts</h1>
 
-<form class="mb-3">
-    <input type="text" placeholder="Address" class="form-control"></form>
-    <button type="button" class="btn btn-primary">Get forecast</button>
-</form>
+  <%= simple_form_for @forecast, url: "/", method: "get" do |f| %>
+    <%= f.input :address, class: "form-control",
+                          placeholder: "Enter address…",
+                          input_html: { autofocus: true } %>
+    <%= f.submit "Get forecast", class: "btn btn-primary" %>
+  <% end %>
+
+  <% if @forecast.current_temperature_with_unit %>
+    <%= @forecast.current_temperature_with_unit %>
+  <% end %>
+</div>

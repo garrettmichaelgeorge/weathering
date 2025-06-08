@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   scope module: "weathering" do
     root "forecasts#show"
-    resources :forecasts,  only: [ :index, :show ]
+    resources :forecasts,  only: [ :show ]
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

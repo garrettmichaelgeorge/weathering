@@ -1,26 +1,25 @@
 <section class="mx-auto vh-100 d-flex justify-content-center align-items-center">
   <div class="w-50">
-    <h1>Weathering</h1>
+    <%= link_to root_path, class: "link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" do %>
+      <h1>Weathering</h1>
+    <% end %>
 
     <%= simple_form_for @forecast, url: "/", method: "get", wrapper: :vertical_form do |f| %>
       <%= f.input :address, class: "form-control",
                             label: false,
                             placeholder: "Enter address…",
+                            value: @forecast.address,
                             input_html: { autofocus: true } %>
       <%= f.button :submit, "Get forecast", class: "btn btn-outline-light" %>
     <% end %>
 
     <div class="mt-2 text-center">
       <p>
-        <% if @forecast.full_address %>
-          <%= @forecast.full_address %>
-        <% end %>
+        <%= @forecast.full_address %>
       </p>
 
       <p class="display-1">
-        <% if @forecast.current_temperature_with_unit %>
-          <%= @forecast.current_temperature_with_unit %>
-        <% end %>
+        <%= @forecast.current_temperature_with_unit %>
       </p>
     </div>
   </div>

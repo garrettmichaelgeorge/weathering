@@ -1,7 +1,8 @@
 module Weathering
   class Forecast
     include ActiveModel::Model
-    attr_accessor :current_temperature, :current_temperature_unit, :address
+
+    attr_accessor :current_temperature, :current_temperature_unit, :address, :full_address
 
     def current_temperature_with_unit
       return nil unless current_temperature.present?

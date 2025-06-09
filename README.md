@@ -63,6 +63,10 @@ due to a
 [limitation](https://nominatim.org/release-docs/latest/customize/Postcodes/) in
 the Nominatim/OpenStreetMap geocoding backend. If it doesn't receive a postal
 code from the geocoding service, then it avoids the forecast cache altogether.
+(This could be mitigated by either switching to a different geocoding backend or
+importing the postal code data as
+[described](https://nominatim.org/release-docs/latest/customize/Postcodes/) by
+Nominatim.)
 
 For cache store, Weathering uses the Rails 8 default option of Solid Cache,
 which uses a relational database (in this case, PostgreSQL). In the future,
@@ -80,8 +84,13 @@ attributes. This would insulate users of the OpenMeteo client from changes in
 the underlying API.
 - Eventually the OpenMeteo client could be extracted into a separate gem to
 maximize reusability.
+- `Weathering::Forecast` could probably be split into two objects: one for the
+location, and one for weather data. This would better mirror the separate
+geocoding/weather services and accord with the split phase described above.
+- Errors fetching data could be handled with retries, switching backends, and,
+failing automated fixes, notifying the user
 
 Automated testing was done using an outside-in (BDD) style approach. A single
 [system test case](./test/system/forecasts_test.rb) drove the bulk of
-development. Additional finer-grained unit tests would be included.
-
+development. Typically additional unit tests would be included to check for edge
+cases and finer-grained behavior.

@@ -11,7 +11,6 @@ Geocoder.configure(
 
   # https://github.com/alexreisner/geocoder?tab=readme-ov-file#caching
   cache: Geocoder::CacheStore::Generic.new(Rails.cache, {})
-
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
   # supports SocketError and Timeout::Error

@@ -1,11 +1,11 @@
 class Weathering::ForecastsController < ApplicationController
   def show
     @forecast = Weathering::Forecast.new
-    address = params[:weathering_forecast][:address]
+    @forecast.address = forecast_params.dig(:weathering_forecast, :address)
 
-    if address.present?
-      logger.debug { "Fetching geocode for #{address}" }
-      geocode_results = Geocoder.search(params[:weathering_forecast][:address])
+    if @forecast.address.present?
+      logger.debug { "Fetching geocode for #{@forecast.address}" }
+      geocode_results = Geocoder.search(@forecast.address)
       geocode_result = geocode_results.first
       logger.debug { "Got coordinates #{geocode_result.coordinates} at postal code #{geocode_result.postal_code}" }
 
@@ -18,6 +18,10 @@ class Weathering::ForecastsController < ApplicationController
   end
 
   private
+
+  def forecast_params
+    params.permit(weathering_forecast: [ :address ])
+  end
 
   def fetch_forecast(coordinates)
     conn = Faraday.new(

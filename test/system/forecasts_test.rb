@@ -6,11 +6,11 @@ class ForecastsTest < ApplicationSystemTestCase
    # And I click, "Get Weather"
    # Then I should see the temperature in degrees F
    test "visiting the index" do
-     visit forecasts_url
+     visit root_url
 
      fill_in "Address", with: "1 Apple Park Way, Cupertino, CA 95014"
-     click_on("Get Weather")
+     click_on("Get forecast")
 
-     assert_text "˚F"
+     assert_text "°F"
    end
 end

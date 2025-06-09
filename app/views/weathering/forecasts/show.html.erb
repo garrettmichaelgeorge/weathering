@@ -8,6 +8,10 @@
     <%= f.submit "Get forecast", class: "btn btn-primary" %>
   <% end %>
 
+  <% if @forecast.address %>
+    <%= @forecast.address %>
+  <% end %>
+
   <% if @forecast.current_temperature_with_unit %>
     <%= @forecast.current_temperature_with_unit %>
   <% end %>

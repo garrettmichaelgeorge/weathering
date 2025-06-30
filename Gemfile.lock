@@ -104,7 +104,7 @@ GEM
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
-    dockerfile-rails (1.7.9)
+    dockerfile-rails (1.7.10)
       rails (>= 3.0.0)
     dotenv (3.1.8)
     drb (2.2.3)
@@ -171,7 +171,7 @@ GEM
     msgpack (1.8.0)
     net-http (0.6.0)
       uri
-    net-imap (0.5.8)
+    net-imap (0.5.9)
       date
       net-protocol
     net-pop (0.1.2)
@@ -262,7 +262,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.3.0)
-    rdoc (6.14.0)
+    rdoc (6.14.1)
       erb
       psych (>= 4.0.0)
     regexp_parser (2.10.0)

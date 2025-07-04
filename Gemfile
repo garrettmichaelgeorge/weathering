@@ -48,7 +48,7 @@ gem "simple_form", "~> 5.3"
 gem "geocoder", "~> 1.8.5"
 
 # https://github.com/lostisland/faraday
-gem "faraday", "~> 2.13.1"
+gem "faraday", "~> 2.13.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
